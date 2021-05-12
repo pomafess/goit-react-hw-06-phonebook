@@ -1,11 +1,9 @@
 import { Component } from 'react';
-// import { v4 as uuidv4 } from 'uuid';
 import { connect } from 'react-redux';
+
 import ContactForm from '../contactForm';
 import Filter from '../filter';
 import ContactList from '../contactList';
-// import { initialState } from "./initialState";
-// import * as actions from '../../redux/actions'
 
 import styles from './Phonebook.module.css';
 
@@ -51,13 +49,13 @@ class Phonebook extends Component {
 
 
 
-  handleRemove = contactId => {
-    this.setState(prevState => {
-      return {
-        contacts: prevState.contacts.filter(({id}) => id !== contactId)
-      }
-    })
-  }
+  // handleRemove = contactId => {
+  //   this.setState(prevState => {
+  //     return {
+  //       contacts: prevState.contacts.filter(({id}) => id !== contactId)
+  //     }
+  //   })
+  // }
 
   // deleteContact = (idx)=> {
   //       this.setState(prevState => {
@@ -72,7 +70,6 @@ class Phonebook extends Component {
   //   }
 
   render() {
-    // const {contacts, filter} = this.state;
     return(
       <>
             <div className={styles.container}>
@@ -91,14 +88,9 @@ class Phonebook extends Component {
   }
 }
 
-// export default Phonebook;
-
 const mapStateToProps = state => ({
  contacts: state.phonebook.contacts
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   // addNote: text => dispatch(addNote(text)),
-// });
 
 export default connect(mapStateToProps, null)(Phonebook)

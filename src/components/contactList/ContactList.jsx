@@ -1,5 +1,4 @@
 import React from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {deleteContact} from '../../redux/phonebook/phonebook-actions'
@@ -15,8 +14,8 @@ const ContactListItem = ({name, number, onClickRemove}) => {
 }
 
 const ContactList = ({ filteredContacts, onRemove }) => {
-    const result = filteredContacts.map(({ id, name, number }) => (
-        <ContactListItem key={id} name={name} number={number} onClickRemove={() => onRemove(id)} />
+    const result = filteredContacts.map(({ id, name, number }, index) => (
+        <ContactListItem key={id} name={name} number={number} onClickRemove={() => onRemove(index)} />
     ))
     
     return (
